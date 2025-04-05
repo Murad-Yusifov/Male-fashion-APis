@@ -1,0 +1,188 @@
+header nav ul, header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main section .containerAddedProducts .card .imgBox, main section .container .card .imgBox, header nav ul li a .counter div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main section .containerAddedProducts, main section .container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+main section .containerAddedProducts .card, main section .container .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+}
+header nav ul {
+  list-style: none;
+  gap: 15px;
+}
+header nav ul li {
+  font-size: 20px;
+  cursor: pointer;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+header nav ul li a img {
+  width: 20px;
+}
+header nav ul li a .counter {
+  width: 50px;
+  position: relative;
+}
+header nav ul li a .counter .fa-cart-plus {
+  font-size: 20px;
+}
+header nav ul li a .counter div {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  font-size: 50%;
+  font-weight: bold;
+  background-color: black;
+  color: yellow;
+  border-radius: 50%;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+}
+main section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+}
+main section .container {
+  width: 90%;
+  height: 100vh;
+  gap: 20px;
+}
+main section .container .card {
+  width: 220px;
+  height: 300px;
+  border: 1px solid black;
+}
+main section .container .card .imgBox {
+  width: 100%;
+  height: 300px;
+}
+main section .container .card .holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 5px;
+  width: 60%;
+  height: 60%;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+main section .container .card .holder #name {
+  font-size: 10px;
+}
+main section .container .card .holder #add-to-card {
+  border-radius: 12px;
+  background-color: #F05E8A;
+  color: white;
+  border: none;
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+}
+main section .container .card .holder #add-to-card:hover {
+  background-color: #d2547a;
+  transition: 0.4s;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+}
+main section {
+  width: 100%;
+  height: 100vh;
+}
+main section #add-to-card {
+  border-radius: 10px;
+  background-color: #F05E8A;
+  grid-template-columns: 1/5;
+  color: white;
+  border: none;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+main section #add-to-card:hover {
+  background-color: #d2547a;
+  transition: 0.4s;
+}
+main section .containerAddedProducts {
+  width: 90%;
+  height: 100vh;
+  gap: 20px;
+}
+main section .containerAddedProducts .card {
+  width: 220px;
+  height: 300px;
+  border: 1px solid black;
+}
+main section .containerAddedProducts .card .imgBox {
+  width: 100%;
+  height: 300px;
+}
+main section .containerAddedProducts .card .holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 5px;
+  width: 60%;
+  height: 60%;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+main section .containerAddedProducts .card .holder #name {
+  font-size: 10px;
+}
+main section .containerAddedProducts .card .holder #add-to-card {
+  border-radius: 12px;
+  background-color: #F05E8A;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+}
+main section .containerAddedProducts .card .holder #add-to-card:hover {
+  background-color: #d2547a;
+  transition: 0.4s;
+}

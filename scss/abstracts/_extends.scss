@@ -1,0 +1,29 @@
+%display-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+%centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+//  display grid for cards
+
+%display-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+//  display column 
+
+%display-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}

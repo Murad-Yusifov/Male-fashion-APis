@@ -1,0 +1,198 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+header {
+  width: $main-w;
+  height: $header-h;
+  @extend %display-row;
+  padding: $padding-sides;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+  nav {
+    ul {
+      list-style: none;
+      @extend %display-row;
+      gap: $header-ul-gap;
+      li {
+        font-size: $header-font-s;
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+          color: black;
+
+          img {
+            width: 20px;
+          }
+          .counter {
+            width: 50px;
+            position: relative;
+
+            .fa-cart-plus {
+              font-size: 20px;
+            }
+            div {
+                width: 20px;
+                height: 20px;
+              position: absolute;
+              top: -10px;
+              right: 5px;
+              font-size: 50%;
+              font-weight: bold;
+              background-color: black;
+              color: yellow;
+              border-radius: 50%;
+              @extend %centered;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  width: $main-w;
+  height: $main-h;
+
+  section {
+    width: $main-w;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+
+    .container {
+      width: 90%;
+      height: 100vh;
+      @extend %display-grid;
+      gap: 20px;
+
+      .card {
+        width: 220px;
+        height: 300px;
+        border: 1px solid black;
+        @extend %display-column;
+        .imgBox {
+            width: $main-w;
+            height: 300px;
+            @extend %centered;
+        }
+        
+        .holder {
+           display: flex;
+           flex-direction: column;
+           justify-content: space-around;
+           gap: 5px;
+           width: 60%;
+           height: 60%;
+           padding-left: 10px;
+           padding-bottom: 5px;
+           #name {
+            font-size: 10px;
+           }
+
+           #add-to-card {
+            border-radius: 12px;
+            background-color: #F05E8A;
+            color: white;
+            border: none;
+            width: 80px;
+            height: 30px;
+            cursor: pointer;
+            
+
+           }
+           #add-to-card:hover {
+            background-color: #d2547a;
+            transition: .4s;
+           }
+            }
+      }
+    }
+  }
+}
+
+
+main {
+    width: $main-w;
+    height: $main-h;
+    section {
+      width: $main-w;
+      height: $main-h;
+    
+      #add-to-card {
+        border-radius: 10px;
+        background-color: #F05E8A;
+        grid-template-columns: 1/5;
+        color: white;
+        border: none;
+        width: 120px;
+        height: 40px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        
+
+       }
+
+       #add-to-card:hover {
+        background-color: #d2547a;
+        transition: .4s;
+       }
+  
+      .containerAddedProducts {
+        width: 90%;
+        height: 100vh;
+        @extend %display-grid;
+        gap: 20px;
+
+     
+  
+        .card {
+          width: 220px;
+          height: 300px;
+          border: 1px solid black;
+          @extend %display-column;
+          .imgBox {
+              width: $main-w;
+              height: 300px;
+              @extend %centered;
+          }
+          
+          .holder {
+             display: flex;
+             flex-direction: column;
+             justify-content: space-around;
+             gap: 5px;
+             width: 60%;
+             height: 60%;
+             padding-left: 10px;
+             padding-bottom: 5px;
+             #name {
+              font-size: 10px;
+             }
+  
+             #add-to-card {
+              border-radius: 12px;
+              background-color: #F05E8A;
+              color: white;
+              border: none;
+              width: 50px;
+              height: 25px;
+              cursor: pointer;
+              
+  
+             }
+             #add-to-card:hover {
+              background-color: #d2547a;
+              transition: .4s;
+             }
+              }
+        }
+      }
+    }
+  }
