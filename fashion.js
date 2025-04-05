@@ -5,7 +5,7 @@ function getCards() {
   fetch(`https://fakestoreapi.com/products`)
     .then((res) => res.json())
     .then((data) => {
-      let section; // ✅ create new section every 4 cards
+      let section;
       data.forEach((product, index) => {
         if (index % 4 === 0) {
           section = document.createElement("section");
@@ -53,21 +53,26 @@ function getCards() {
         holder.appendChild(price);
         holder.appendChild(button);
 
-
         section.querySelector(".container").appendChild(card);
       });
     });
 }
 
 window.onload = () => {
-  getCards();
+  if (window.location.pathname.includes("categories.html")) {
+    getItemsFetch();
+  }
+  if (document.querySelector(".container")) {
+    getCards();
+  }
   addToCart();
-  displayAddedcarts();
-  currentProducts();
+  if (document.querySelector(".containerAddedProducts")) {
+    displayAddedcarts();
+  }
 };
 
 function storedProducts(product) {
-  let storedProducts = JSON.parse(localStorage.getItem("basket")) || []; 
+  let storedProducts = JSON.parse(localStorage.getItem("basket")) || [];
 
   storedProducts.push(product);
 
@@ -97,7 +102,6 @@ button2.addEventListener("click", () => {
 section.appendChild(button2);
 
 function displayAddedcarts() {
-  const addedProducts = document.querySelector(".containerAddedProducts");
   addedProducts.innerHTML = "";
 
   let addedOneProducts = JSON.parse(localStorage.getItem("basket")) || [];
@@ -145,19 +149,69 @@ function displayAddedcarts() {
 }
 
 function deleteProducts(index) {
-  let basket = JSON.parse(localStorage.getItem("basket")) || []; 
+  let basket = JSON.parse(localStorage.getItem("basket")) || [];
   basket.splice(index, 1);
   localStorage.setItem("basket", JSON.stringify(basket));
   addToCart();
-  displayAddedcarts(); 
+  displayAddedcarts();
 }
 
 function deleteAllProducts() {
   localStorage.removeItem("basket");
 }
 
-function currentProducts() {
-  let currentBasket = JSON.parse(localStorage.getItem("basket")) || []; 
-  const counterProducts = document.querySelector(".counterProducts");
-  counterProducts.textContent = currentBasket.length;
+function getItemsAxios() {
+  axios.get(`https://northwind.vercel.app/api/categories`).then((res) => {
+    localStorage.setItem = res.data;
+    console.log("Stored categories:", res.data);
+  });
 }
+
+function getItemsFetch() {
+  fetch(`https://northwind.vercel.app/api/categories`)
+    .then((res) => res.json())
+    .then((data) => {
+      localStorage.setItem(("categories", JSON.stringify(data)));
+
+      data.forEach((category) => {
+        const output = document.getElementById("output");
+
+        let header = document.createElement("h3");
+        header.className = "header3";
+        header.textContent = category.name;
+
+        let description = document.createElement("p");
+        description.className = "description";
+        description.textContent = category.description;
+
+        const container = document.createElement("div");
+        container.className = "category-card";
+
+        container.appendChild(header);
+        container.appendChild(description);
+        output.appendChild(container);
+      });
+    });
+}
+
+// function setItemFetch () {
+//   let joined = JSON.parse(localStorage.getItem("categories"))
+//   joined.forEach((category) => {
+//     let header = document.createElement("h3");
+//     header.className = "header3";
+//     header.textContent = category.name;
+
+//     let description = document.createElement("p");
+//     description.className = "description";
+//     description.textContent = category.description;
+
+//     const container = document.createElement("div")
+//     container.className = "category-card"
+
+//     container.appendChild(header)
+//     container.appendChild(description)
+
+//     output.appendChild(container)
+
+//   });
+// }
