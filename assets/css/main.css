@@ -13,6 +13,7 @@ main section .containerAddedProducts .card .imgBox, main section .container .car
 main section .containerAddedProducts, main section .container {
   display: grid;
   grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
 }
 
 main section .containerAddedProducts .card, main section .container .card {
@@ -80,6 +81,7 @@ main section {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-content: space-between;
   overflow-y: scroll;
 }
 main section .container {
@@ -126,10 +128,16 @@ main section .container .card .holder #add-to-card:hover {
 main {
   width: 100%;
   height: 100vh;
+  padding-bottom: 20px;
+  overflow-y: scroll;
 }
 main section {
   width: 100%;
-  height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
 }
 main section #add-to-card {
   border-radius: 10px;
@@ -138,9 +146,9 @@ main section #add-to-card {
   color: white;
   border: none;
   width: 120px;
-  height: 40px;
+  height: 30px;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin: 5px;
 }
 main section #add-to-card:hover {
   background-color: #d2547a;
@@ -148,7 +156,6 @@ main section #add-to-card:hover {
 }
 main section .containerAddedProducts {
   width: 90%;
-  height: 100vh;
   gap: 20px;
 }
 main section .containerAddedProducts .card {

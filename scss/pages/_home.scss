@@ -64,6 +64,7 @@ main {
     width: $main-w;
     display: flex;
     justify-content: center;
+    align-content: space-between;
     overflow-y: scroll;
 
     .container {
@@ -121,9 +122,15 @@ main {
 main {
     width: $main-w;
     height: $main-h;
+    padding-bottom: 20px ;
+    overflow-y: scroll;
     section {
       width: $main-w;
-      height: $main-h;
+      height: auto;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: center;
     
       #add-to-card {
         border-radius: 10px;
@@ -132,9 +139,9 @@ main {
         color: white;
         border: none;
         width: 120px;
-        height: 40px;
+        height: 30px;
         cursor: pointer;
-        margin-bottom: 20px;
+        margin: 5px;
         
 
        }
@@ -146,7 +153,6 @@ main {
   
       .containerAddedProducts {
         width: 90%;
-        height: 100vh;
         @extend %display-grid;
         gap: 20px;
 
