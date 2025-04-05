@@ -69,6 +69,11 @@ window.onload = () => {
   if (document.querySelector(".containerAddedProducts")) {
     displayAddedcarts();
   }
+  if (window.location.pathname.includes("categories.html")) {
+    getItemsFetch();
+    gotFromLocal();
+  }
+
 };
 
 function storedProducts(product) {
@@ -160,58 +165,106 @@ function deleteAllProducts() {
   localStorage.removeItem("basket");
 }
 
-function getItemsAxios() {
-  axios.get(`https://northwind.vercel.app/api/categories`).then((res) => {
-    localStorage.setItem = res.data;
-    console.log("Stored categories:", res.data);
+// function getItemsAxios() {
+//   axios.get(`https://northwind.vercel.app/api/categories`).then((res) => {
+//     localStorage.setItem = res.data;
+//     console.log("Stored categories:", res.data);
+//   });
+// }
+
+document.addEventListener("DOMContentLoaded", () => {
+  getItemsFetch();
+});
+
+function getItemsFetch() {
+  fetch("https://northwind.vercel.app/api/categories")
+    .then((res) => res.json())
+    .then((data) => {
+      localStorage.setItem("categories", JSON.stringify(data));
+      console.log("Data saved to localStorage:", data);
+      gotFromLocal(); // render after saving
+    })
+    .catch((err) => console.error("Fetch error:", err));
+}
+
+function gotFromLocal() {
+  const data = JSON.parse(localStorage.getItem("categories"));
+  const output = document.getElementById("output");
+
+  if (!data || !output) {
+    console.warn("No data or output element found.");
+    return;
+  }
+
+  output.innerHTML = ""; // clear old content
+
+  data.forEach((category) => {
+    const container = document.createElement("div");
+    container.className = "category-card";
+
+    const header = document.createElement("h3");
+    header.textContent = category.name;
+
+    const description = document.createElement("p");
+    description.textContent = category.description;
+
+    container.appendChild(header);
+    container.appendChild(description);
+    output.appendChild(container);
   });
 }
 
-function getItemsFetch() {
-  fetch(`https://northwind.vercel.app/api/categories`)
-    .then((res) => res.json())
-    .then((data) => {
-      localStorage.setItem(("categories", JSON.stringify(data)));
+window.onload = () => {
+  getItemsFetch(); // fetch and show on page load
+};
 
-      data.forEach((category) => {
-        const output = document.getElementById("output");
 
-        let header = document.createElement("h3");
-        header.className = "header3";
-        header.textContent = category.name;
+// const postItem = () => {
+//   fetch(`https://northwind.vercel.app/api/categories`, {
+//       method: "POST",
+//       headers: {
+//           "Content-type": "application/json",
+//       },
+//       body: JSON.stringify({
 
-        let description = document.createElement("p");
-        description.className = "description";
-        description.textContent = category.description;
-
-        const container = document.createElement("div");
-        container.className = "category-card";
-
-        container.appendChild(header);
-        container.appendChild(description);
-        output.appendChild(container);
-      });
-    });
-}
-
-// function setItemFetch () {
-//   let joined = JSON.parse(localStorage.getItem("categories"))
-//   joined.forEach((category) => {
-//     let header = document.createElement("h3");
-//     header.className = "header3";
-//     header.textContent = category.name;
-
-//     let description = document.createElement("p");
-//     description.className = "description";
-//     description.textContent = category.description;
-
-//     const container = document.createElement("div")
-//     container.className = "category-card"
-
-//     container.appendChild(header)
-//     container.appendChild(description)
-
-//     output.appendChild(container)
-
+//       }),
 //   });
-// }
+// };
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const output = document.getElementById("output");
+        
+// let header = document.createElement("h3");
+// header.className = "header3";
+// header.textContent = category.name;
+
+// let description = document.createElement("p");
+// description.className = "description";
+// description.textContent = category.description;
+
+// const container = document.createElement("div");
+// container.className = "category-card";
+// container.style.width ="100%"
+
+// container.appendChild(header);
+// container.appendChild(description);
+// output.appendChild(container);
+// });

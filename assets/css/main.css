@@ -113,7 +113,7 @@ main section .container .card .holder #name {
 }
 main section .container .card .holder #add-to-card {
   border-radius: 12px;
-  background-color: #F05E8A;
+  background-color: rgba(240, 94, 138, 0.7647058824);
   color: white;
   border: none;
   width: 80px;
@@ -121,7 +121,7 @@ main section .container .card .holder #add-to-card {
   cursor: pointer;
 }
 main section .container .card .holder #add-to-card:hover {
-  background-color: #d2547a;
+  background-color: rgba(210, 84, 122, 0.6588235294);
   transition: 0.4s;
 }
 
@@ -142,7 +142,7 @@ main section {
 }
 main section #add-to-card {
   border-radius: 10px;
-  background-color: #F05E8A;
+  background-color: rgba(240, 94, 138, 0.7019607843);
   grid-template-columns: 1/5;
   color: white;
   border: none;
@@ -185,7 +185,7 @@ main section .containerAddedProducts .card .holder #name {
 }
 main section .containerAddedProducts .card .holder #add-to-card {
   border-radius: 12px;
-  background-color: #F05E8A;
+  background-color: #f05e8a;
   color: white;
   border: none;
   width: 50px;
@@ -227,6 +227,9 @@ main section .containerAddedProducts .card .holder #add-to-card:hover {
   background-color: rgba(0, 128, 0, 0.584);
   transition: 0.4s;
 }
-#main3 .sectionCatagories .output {
+#main3 .sectionCatagories3 #output {
+  width: 100%;
+}
+#main3 .sectionCatagories3 #output .catagory-card {
   width: 100%;
 }
