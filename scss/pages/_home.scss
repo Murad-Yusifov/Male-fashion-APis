@@ -201,6 +201,7 @@ main {
   width: $main-w;
   .sectionCatagories {
     width: $main-w;
+    height: 200px;
     .addIt {
       width: 150px;
       @extend %display-column;
@@ -234,9 +235,17 @@ main {
   .sectionCatagories3 {
     #output {
       width: $main-w;
-      .catagory-card {
-        width: $main-w;
-      }
+      @extend %display-grid;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+     .oneTime {
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      @extend %display-column;
+      padding: 40px 10px;
+     }
     }
   }
 }
