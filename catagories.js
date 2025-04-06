@@ -19,13 +19,13 @@ function gotFromLocal() {
         const forEachOne = document.createElement("div");
         forEachOne.className = "oneTime";
 
-        const header = document.createElement("h3");
+        const header = document.createElement("p");
         header.className = "title";
-        header.innerHTML = `<span style="font-weight:500;">Name:</span> ${item.name}`;
+        header.innerHTML = `<span style="font-weight:600;">Name:</span> ${item.name}`;
 
         const description = document.createElement("p");
         description.className = "cards";
-        description.textContent =`Description: ${item.description}`;
+        description.innerHTML =`<span style="font-weight:600;">Description:</span> ${item.description}`;
 
         const btn = document.createElement("button");
         btn.className = "btn";
